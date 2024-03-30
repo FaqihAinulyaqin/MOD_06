@@ -1,0 +1,15 @@
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.GeneratedMSBuildEditorConfig.editorconfig
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.AssemblyInfoInputs.cache
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.AssemblyInfo.cs
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.csproj.CoreCompileInputs.cache
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.sourcelink.json
+D:\MOD_06\MOD_06\bin\Debug\net8.0\MOD_06.exe
+D:\MOD_06\MOD_06\bin\Debug\net8.0\MOD_06.deps.json
+D:\MOD_06\MOD_06\bin\Debug\net8.0\MOD_06.runtimeconfig.json
+D:\MOD_06\MOD_06\bin\Debug\net8.0\MOD_06.dll
+D:\MOD_06\MOD_06\bin\Debug\net8.0\MOD_06.pdb
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.dll
+D:\MOD_06\MOD_06\obj\Debug\net8.0\refint\MOD_06.dll
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.pdb
+D:\MOD_06\MOD_06\obj\Debug\net8.0\MOD_06.genruntimeconfig.cache
+D:\MOD_06\MOD_06\obj\Debug\net8.0\ref\MOD_06.dll

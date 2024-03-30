@@ -1,2 +1,107 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿class SayaTubeVideo
+{
+    private int id; private string title; private int playCount;
+
+    public SayaTubeVideo(string title)
+    {
+        this.title = title;
+        this.playCount = 0;
+
+        Random random = new Random();
+        this.id = random.Next(10000, 99999);
+    }
+
+    public void IncreasePlayCount(int count)
+    {
+        playCount += count;
+    }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+
+    public int GetCount()
+    {
+        return playCount;
+    }
+
+    public void PrintVideoDetails()
+    {
+        Console.WriteLine("Video ID   : " + id);
+        Console.WriteLine("Title      : " + title);
+        Console.WriteLine("Play Count : " + playCount);
+    }
+}
+
+class SayaTubeUser
+{
+    private int id; private List<SayaTubeVideo> uploadedVideos; private string username;
+
+    public SayaTubeUser(string username)
+    {
+        this.username = username;
+        this.uploadedVideos = new List<SayaTubeVideo>();
+
+        Random random = new Random();
+        this.id = random.Next(10000, 99999);
+    }
+
+    public int GetTotalVideoPlayCount()
+    {
+        int total = 0;
+        for(int i = 0; i < uploadedVideos.Count; i++)
+        {
+            total = total + uploadedVideos[i].GetCount();
+        }
+        return total;
+    }
+
+    public void AddVideo(SayaTubeVideo video)
+    {
+        uploadedVideos.Add(video);
+    }
+
+    public void PrintAllVideoPlayCount()
+    {
+        Console.WriteLine("User          : " + username);
+        for(int i = 0;i < uploadedVideos.Count; i++)
+        {
+            Console.WriteLine("Video " + (i + 1) + " judul : " + uploadedVideos[i].GetTitle());
+        }
+    }
+}
+
+class program
+{
+    static void Main(string[] args)
+    {
+        string nama = "Muhammad Faqih Ainulyaqin";
+
+        SayaTubeVideo video1 = new SayaTubeVideo("Review Film Dark Knight Returns oleh " + nama);
+        SayaTubeVideo video2 = new SayaTubeVideo("Review Film The Hobit oleh " + nama);
+        SayaTubeVideo video3 = new SayaTubeVideo("Review Film Don't Knock Twice Returns oleh " + nama);
+        SayaTubeVideo video4 = new SayaTubeVideo("Review Film Man of Steel oleh " + nama);
+        SayaTubeVideo video5 = new SayaTubeVideo("Review Film Suicide Squad oleh " + nama);
+        SayaTubeVideo video6 = new SayaTubeVideo("Review Film The Marvel oleh " + nama);
+        SayaTubeVideo video7 = new SayaTubeVideo("Review Film Spiderman oleh " + nama);
+        SayaTubeVideo video8 = new SayaTubeVideo("Review Film Captain America oleh " + nama);
+        SayaTubeVideo video9 = new SayaTubeVideo("Review Film Lord of The Rings oleh " + nama);
+        SayaTubeVideo video10 = new SayaTubeVideo("Review Film The Conjuring oleh " + nama);
+
+
+        SayaTubeUser user1 = new SayaTubeUser(nama);
+        user1.AddVideo(video1);
+        user1.AddVideo(video2);
+        user1.AddVideo(video3);
+        user1.AddVideo(video4);
+        user1.AddVideo(video5);
+        user1.AddVideo(video6);
+        user1.AddVideo(video7);
+        user1.AddVideo(video8);
+        user1.AddVideo(video9);
+        user1.AddVideo(video10);
+
+        user1.PrintAllVideoPlayCount();
+    }
+}
