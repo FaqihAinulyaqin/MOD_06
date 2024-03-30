@@ -1,9 +1,17 @@
-﻿class SayaTubeVideo
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices.Marshalling;
+
+class SayaTubeVideo
 {
     private int id; private string title; private int playCount;
 
     public SayaTubeVideo(string title)
     {
+        if(title == null || title.Length > 200)
+        {
+            throw new ArgumentException("Judul video tidak boleh kosong dan maksimal 200 karakter.");
+        }
+
         this.title = title;
         this.playCount = 0;
 
@@ -13,7 +21,17 @@
 
     public void IncreasePlayCount(int count)
     {
-        playCount += count;
+        try
+        {
+            checked
+            {
+                playCount += count;
+            }
+        }
+        catch(OverflowException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
     }
 
     public string GetTitle()
@@ -40,6 +58,10 @@ class SayaTubeUser
 
     public SayaTubeUser(string username)
     {
+        if(username == null || username.Length > 100)
+        {
+            throw new ArgumentException("Username tidak boleh null dan maksimal 100 karakter.");
+        }
         this.username = username;
         this.uploadedVideos = new List<SayaTubeVideo>();
 
@@ -59,6 +81,10 @@ class SayaTubeUser
 
     public void AddVideo(SayaTubeVideo video)
     {
+        if(video == null || video.GetCount() >= 25000000)
+        {
+            throw new ArgumentException("Video tidak boleh null dan playcount harus kurang dari maksimum integer");
+        }
         uploadedVideos.Add(video);
     }
 
@@ -101,6 +127,8 @@ class program
         user1.AddVideo(video8);
         user1.AddVideo(video9);
         user1.AddVideo(video10);
+
+        video1.PrintVideoDetails();
 
         user1.PrintAllVideoPlayCount();
     }
